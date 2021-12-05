@@ -1,0 +1,17 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `search`(IN keyword varchar(255),IN promotion varchar(255),IN address varchar(255),IN typeSort varchar(255),IN limit1 int(255))
+BEGIN
+SET @dynamic_sql = CONCAT('select * from food inner join restaurant on food.restaurant_id = restaurant.id inner join food_promotion on food.id = food_promotion.food_id inner join promotion on  food_promotion.promotion_id = promotion.id where (food.name  like \'%',keyword,'%\' or restaurant.name like \'%',keyword,'%\') and promotion.value like \'%',promotion,'%\' and restaurant.address like \'%',address,'%\' order by ',typeSort,' asc limit ',  limit1 );
+	PREPARE stmt FROM @dynamic_sql;
+  EXECUTE stmt;
+--   select @dynamic_sql;
+  DEALLOCATE PREPARE stmt;
+END
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `countFood`(IN keyword varchar(255),IN promotion varchar(255),IN address varchar(255),IN typeSort varchar(255),IN limit1 int(255))
+BEGIN
+SET @dynamic_sql_count = CONCAT('select count(*) from food inner join restaurant on food.restaurant_id = restaurant.id inner join food_promotion on food.id = food_promotion.food_id inner join promotion on  food_promotion.promotion_id = promotion.id where (food.name  like \'%',keyword,'%\' or restaurant.name like \'%',keyword,'%\') and promotion.value like \'%',promotion,'%\' and restaurant.address like \'%',address,'%\' order by ',typeSort,' asc limit ',  limit1 );
+	 PREPARE stmt FROM @dynamic_sql_count;
+	EXECUTE stmt;
+--   select @dynamic_sql_count;
+  DEALLOCATE PREPARE stmt;
+END
