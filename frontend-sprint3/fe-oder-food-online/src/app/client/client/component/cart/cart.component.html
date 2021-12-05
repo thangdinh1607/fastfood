@@ -1,0 +1,79 @@
+<div class="container mt-5 mb-5">
+  <div class="d-flex justify-content-center row">
+    <div class="col-md-8">
+      <div class="p-2 mt-5">
+        <i class="bi bi-cart4" style="color: red;font-size: 60px"></i>
+      </div>
+      <div *ngIf="cart.length==0">
+        <i class="bi bi-cart-x" style="color: red;font-size: 100px"></i>
+      </div>
+      <div *ngIf="cart.length!=0">
+        <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt-4 px-3 rounded"
+             *ngFor="let c of cart">
+          <div class="mr-1 col-2">
+            <img class="rounded" src="{{c.img}}" width="70" alt="">
+          </div>
+          <div class="d-flex flex-column align-items-center product-details col-2">
+
+            <a role="button" class="text-dark"
+            style="font-size: 15px" >{{c.name}}
+            </a>
+            <div class="d-flex flex-row product-desc">
+              <div class="size mr-1"><strong  >Cỡ Lớn</strong>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-row align-items-center qty col-2"><i class="fa fa-minus text-danger"></i>
+            <button class="hoverTrash" (click)="decrement(c.idFood)"> -</button>
+            <h5 class=" mt-2 mr-2 ml-2 "style="font-size: 15px"  >{{c.count}}</h5><i class="fa fa-plus text-success"></i>
+            <button class="hoverTrash" (click)="increment(c.idFood)"> +</button>
+          </div>
+          <div class="col-3 text-center">
+            <p class="font-weight-bold mt-2 " style="font-size: 15px">{{c.price|currency:'VND':true:'4.0-2'}} VND</p>
+          </div>
+          <div class="col-2">
+            <p class="font-weight-bold mt-2"  style="font-size: 15px">{{c.promotion}} %</p>
+          </div>
+          <div class="col-2 " style="font-size: 30px">
+            <i class="bi bi-trash hoverTrash alert-heading  "style="color: red" role="button" (click)="getNameDelete(c.idFood)"  data-toggle="modal" data-target="#exampleModal"  ></i>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p style="font-size: 20px"> Bạn có muốn xóa <b style="color: red">{{nameDelete}}</b> khỏi giỏ hàng ? </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="removeFood(c.idFood)">Xóa</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded"><input type="text"
+                                                                                         class="form-control border-0 gift-card"
+                                                                                         placeholder="Nhập mã giảm giá">
+          <button class="btn btn-outline-warning btn-sm ml-2" type="button">Nhập</button>
+        </div>
+        <div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
+          <b style="font-size: 20px">Tổng cộng : {{total |currency:'VND':true:'4.0-2'}} VND </b>
+        </div>
+      </div>
+      <div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
+        <button [disabled]="cart.length==0" class="btn btn-warning btn-block btn-lg ml-2 pay-button" type="button" (click)="payment()">Thanh toán</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

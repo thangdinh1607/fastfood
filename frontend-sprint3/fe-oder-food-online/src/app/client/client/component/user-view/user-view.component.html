@@ -1,0 +1,22 @@
+<div class="container backround1" >
+  <h1 class="text-center" style="color: red"> <b> Thông tin cá nhân</b> </h1>
+  <div class="row">
+    <div class="col-6">
+      <ul style="color: red">
+        <li > <p style="color: cornflowerblue"> Tên tài khoản :  <b  style="float: right;color: black" *ngIf="user.name" > {{user.name}}</b></p ></li>
+        <li> <p style="color: cornflowerblue"> Tên người dùng : <b style="float: right ;color: black" >{{user.customer.name}} </b> </p></li>
+        <li> <p style="color: cornflowerblue">Địa chỉ :<b style="float: right;color: black" >{{user.customer.address}} </b></p></li>
+        <li><p style="color: cornflowerblue"> Birthday :  <b style="float: right;color: black"  > {{user.customer.birthDay}} </b></p></li>
+        <li><p style="color: cornflowerblue"> Email : <b style="float: right;color: black" >{{user.customer.email}} </b></p></li>
+        <li> <p style="color: cornflowerblue">Số điện thoại :<b style="float: right;color: black" >{{user.customer.phone  }}</b> </p></li>
+      </ul>
+    </div>
+    <div class="col-2"></div>
+    <div class="col-4">
+      <img style="background: #dddddd; border-radius: 50%; border: 2px solid #a1a1a1; height:200px; padding: 10px; text-align: center;margin-left:auto;margin-right:auto;margin-bottom: 20px" [src]="user.customer.image" alt="" height="200px">
+    </div>
+  </div>
+  <div class="text-center">
+    <Button class="btn btn-warning" (click)="closeDialog()"> <span>Đóng </span></Button>
+  </div>
+</div>

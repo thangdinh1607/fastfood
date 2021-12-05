@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>C0221g1-Dịch vụ web site đồ ăn online</title>
+    <link rel="stylesheet" href="bootstrap-4.6.0-dist/css/bootstrap.css">
+    <script src="bootstrap-4.6.0-dist/jquery/jquery-3.6.0.min.js"></script>
+
+    <script src="bootstrap-4.6.0-dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="bootstrap-4.6.0-dist/main.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top" style="height: 80px;margin-bottom: 15px">
+    <div class="container"><a href="#" class="navbar-brand d-flex align-items-center">
+        <img src="img/tong-hop-30-mau-logo-nganh-thuc-pham-x5.jpg" style="height: 100px;width: auto" alt="">
+        <strong>Dịch vụ đặt đồ ăn online</strong></a>
+        <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="#" class="nav-link font-italic"> Trang chủ </a></li>
+                <li class="nav-item active"><a href="#" class="nav-link font-italic"> Giới thiệu </a></li>
+                <li class="nav-item active"><a href="#" class="nav-link font-italic"> Bảng tin </a></li>
+                <li class="nav-item active"><a href="#" class="nav-link font-italic"> Đăng ký đối tác</a></li>
+                <li class="nav-item active"><a href="login.html" class="nav-link font-italic"><p id="login">
+                     <i class="bi bi-person-circle" style="color: red ;font-size: 30px"></i>
+                </p></a></li>
+                <li class="nav-item active">
+                    <a href="cart.html" class="nav-link font-italic">
+                        <i class="bi bi-cart4" style="color: orange ;font-size: 30px"></i>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container" style="margin-top: 150px">
+    <div class="row">
+        <div class="col-6">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">
+                        <i class="bi bi-broadcast"></i>
+                    </label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Chọn tên thành phố</option>
+                    <option value="1">Hà Nội</option>
+                    <option value="2">Sài Gòn</option>
+                    <option value="3">Đà Nẵng</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Nhập tên cửa hàng hoặc món ăn ..."
+                       aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="row">
+            <div class="col-4">
+                <select class="custom-select" id="inputGroupSelect02">
+                    <option selected>Chọn tên Quận</option>
+                    <option value="1">Quận 1</option>
+                    <option value="2">Quận 2</option>
+                    <option value="3">Quận 3</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <select class="custom-select" id="inputGroupSelect03">
+                    <option selected>Món ăn</option>
+                    <option value="1">Món ăn1</option>
+                    <option value="2">Món ăn2</option>
+                    <option value="3">Món ăn3</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <select class="custom-select" id="inputGroupSelect04">
+                    <option selected>Khuyến mãi</option>
+                    <option value="1">10%</option>
+                    <option value="2">30%</option>
+                    <option value="3">50%</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <input class="form-control" type="text" placeholder="Nhập địa chỉ giao hàng">
+    </div>
+    <div class="col-2">
+        <select class="custom-select" id="sort">
+            <option selected>Sắp xếp theo</option>
+            <option value="1">Tên</option>
+            <option value="2">Giá</option>
+            <option value="3">Bình chọn</option>
+        </select>
+    </div>
+</div>
+<div class="">
+    <iframe src="body.html" style=" width: 100% ; height: 1100px" scrolling="no" frameborder="no"></iframe>
+</div>
+<div  >
+    <iframe src="footer.html" style=" width: 100% ; height: 330px" scrolling="no" frameborder="no"></iframe>
+</div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+
+
+<div class="container" style="margin-top: 150px">
+  <div class="row">
+    <div class="col-5">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">
+            <i class="bi bi-broadcast"></i>
+          </label>
+        </div>
+        <select class="custom-select" id="inputGroupSelect01" #city (input)="sendCity(city.value)">
+          <option selected value="">Chọn tên thành phố</option>
+          <option value="Hà Nội">Hà Nội</option>
+          <option value="Sài Gòn">Sài Gòn</option>
+          <option value="Đà Nẵng">Đà Nẵng</option>
+          <option value="">Tất cả</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-5">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Nhập tên cửa hàng hoặc món ăn ..."
+               aria-label="Recipient's username" aria-describedby="button-addon2" #keyword>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                  (click)="sendKeyword(keyword.value)">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <input type="button" class="input-group form-control" value="Tìm kiếm nâng cao" (click)="showAdvancedSearch()">
+    </div>
+  </div>
+</div>
+<div class="container" [style]="advanced">
+  <div class="row">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4">
+          <select class="custom-select" id="inputGroupSelect02" #district (input)="sendDistrict(district.value)">
+            <option selected value="">Chọn tên Quận</option>
+            <option *ngFor="let d of district1" value="{{d.name}}">{{d.name}}</option>
+            <option value="">Tất cả</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <select class="custom-select" id="inputGroupSelect03">
+            <option selected>Món ăn</option>
+            <option value="food">Đồ ăn</option>
+            <option value="drink">Đô uống</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <select class="custom-select" id="inputGroupSelect04" #promotion (input)="sendPromotion(promotion.value)">
+            <option selected value="">Khuyến mãi</option>
+            <option value="10">10%</option>
+            <option value="20">20%</option>
+            <option value="30">30%</option>
+            <option value="40">40%</option>
+            <option value="50">50%</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <input class="form-control" type="text" placeholder="Nhập địa chỉ giao hàng">
+    </div>
+    <div class="col-2">
+      <select class="custom-select" id="sort" #typeSort (input)="sendTypeSort(typeSort.value)">
+        <option selected value="">Sắp xếp theo</option>
+        <option value="food.name">Tên</option>
+        <option value="food.price">Giá</option>
+        <option value="">Bình chọn</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="container" style="margin-bottom: 5%">
+  <p class=" text-muted font-italic">Tìm thấy <strong> {{numberOfSearch}}</strong> sản phẩm phù hợp.</p>
+  <div class="row pb-5 mb-4">
+
+    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 text-center mt-5  " *ngFor="let f of foods,index as i">
+      <!-- Card-->
+      <div class="card rounded shadow-sm border-0 ">
+        <div class="card-body p-4">
+          <img id="foodImg"
+            [src]="f.img" alt=""
+            class="img-fluid d-block mx-auto mb-3 imgBox " style="width: auto ; height: 200px"
+            (click)="openDialog(f.id)">
+          <h5 style="text-align: center ; font-size: 20px">
+            <p  role="button" class="test"
+      (click)="openDialog(f.id)">{{f.name}}
+            </p>
+          </h5>
+          <h5 style="text-align: center ;color: red ;font-size: 30px">{{f.price |currency:'VND':true:'4.0-2'}} VND</h5>
+          <p class="small text-muted font-italic" style="height: 80px ;font-size: 12px;"><b>{{f.description}} </b> </p>
+          <div id="promotion" class="mt-3"
+             style="font-size: 20px ;color: cornflowerblue;height: 50px "><i class="bi bi-star"></i><strong> {{f.promotions[0].name}}</strong><i class="bi bi-star"></i></div>
+          <p class="text-center" style="color: red "><b> ---{{f.restaurant.name}}---</b></p>
+          <p class="text-center"><b> ({{f.restaurant.address}})</b></p>
+          <button class=" btn btn-info" style="margin-bottom: 10px;font-size: 10px" (click)="sendId(f.id)"> Thêm vào giỏ
+            hàng
+          </button>
+        </div>
+      </div>
+    </div>
+    <!--    <div class="col-lg-1"></div>-->
+  </div>
+  <button class="btn-info" style="width: 100%" (click)="upPage()"> Xem thêm</button>
+</div>
+

@@ -1,0 +1,52 @@
+
+
+.imgBox:hover
+{
+  -moz-box-shadow: 0 0 30px #ccc;
+  -webkit-box-shadow: 0 0 30px #ccc;
+  box-shadow: 0 0 30px #ccc;
+}
+#promotion{
+  position:relative;
+  left:0px;
+  animation-name:move_right;
+  animation-duration:3s;
+  animation-iteration-count:infinite;
+  text-align: left !important;
+}
+@keyframes move_right{
+  0%{left:0px;}
+  100%{left:100px;}
+}
+/**/
+
+@-webkit-keyframes myzz {
+  0% { color: cornflowerblue; }
+  50% { color: #fff; }
+  100% { color: cornflowerblue; }
+}
+@-moz-keyframes myzz {
+  0% { color: cornflowerblue; }
+  50% { color: #fff; }
+  100% { color: cornflowerblue; }
+}
+@-o-keyframes myzz {
+  0% { color: cornflowerblue; }
+  50% { color: #fff; }
+  100% { color: cornflowerblue; }
+}
+@keyframes myzz {
+  0% { color: cornflowerblue; }
+  50% { color: #fff; }
+  100% { color: cornflowerblue; }
+}
+.test {
+  font-size:24px;
+  font-weight:bold;
+  -webkit-animation: myzz 700ms infinite;
+  -moz-animation: myzz 700ms infinite;
+  -o-animation: myzz 700ms infinite;
+  animation: myzz 700ms infinite
+
+}
+

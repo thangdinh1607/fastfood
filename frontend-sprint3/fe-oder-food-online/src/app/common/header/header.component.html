@@ -1,0 +1,47 @@
+<nav id="hinhnenHeader" class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top" style="height: 80px;margin-bottom: 15px">
+  <div class="container mt-4">
+    <div class="mb-4">
+      <a href="/client/food" class="navbar-brand d-flex align-items-center">
+        <img src="/assets/img/zyro-image.png" style="height: 100px;width: auto" alt="">
+        <strong style="font-size: 90%">ThangDinh Food</strong>
+      </a>
+    </div>
+    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a href="/client/food" class="nav-link ">
+            <span
+              style="font-size: 130%"> Trang chủ</span>
+          </a>
+        </li>
+        <li class="nav-item active"><a href="#" class="nav-link"> <span style="font-size: 130%">Giới thiệu</span> </a>
+        </li>
+        <li class="nav-item active"><a href="#" class="nav-link"><span style="font-size: 130%"> Bảng tin</span> </a>
+        </li>
+        <li class="nav-item active"><a href="#" class="nav-link"><span style="font-size: 130%">Đăng ký đối tác </span>
+        </a></li>
+        <li class="nav-item active">
+          <a role="button" class="nav-link font-italic" (click)="openDialog()">
+            <p id="login">
+              <img [src]="img" alt=""style="background: #dddddd; border-radius: 50%; border: 2px solid #a1a1a1; height:30px; padding: 2px; text-align: center;margin-left:auto;margin-right:auto;margin-bottom: 2px">
+              <span class="badge badge-primary">{{role}}</span>
+            </p>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a *ngIf="numberOfCart!=0" href="/client/cart" class="nav-link font-italic">
+            <i class="bi bi-cart4" style="color: orange ;font-size: 30px"></i>
+            <span class="badge badge-danger">{{numberOfCart}}</span>
+          </a>
+          <a *ngIf="numberOfCart==0" class="nav-link font-italic">
+            <i class="bi bi-cart4" style="color: orange ;font-size: 30px"></i>
+            <span class="badge badge-danger">{{numberOfCart}}</span>
+          </a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
